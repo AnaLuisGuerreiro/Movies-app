@@ -31,7 +31,6 @@ function App() {
             );
           })}
         </div>
-        <img src="./img/btn-home_logo.png" alt="log" />
         <Navbar />
       </div>
     </div>

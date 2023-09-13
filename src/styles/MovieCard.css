@@ -1,0 +1,7 @@
+.MovieCard {
+  text-align: center;
+}
+.MovieCard img {
+  padding: 15px;
+  border-radius: 25px;
+}
