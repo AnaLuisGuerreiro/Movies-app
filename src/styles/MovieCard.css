@@ -1,7 +1,21 @@
 .MovieCard {
-  text-align: center;
+  align-items: center;
 }
-.MovieCard img {
-  padding: 15px;
-  border-radius: 25px;
+
+.MovieCard .swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.MovieCard .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: auto;
+  height: 300px;
+}
+
+.MovieCard .swiper-slide img {
+  display: block;
+  width: 100%;
 }

@@ -1,8 +1,24 @@
 .Navbar {
-  margin-top: 200px;
+  margin-top: 150px;
   text-align: center;
+  color: aliceblue;
 }
 .Navbar img {
-  width: 100px;
-  text-align: center;
+  width: 60px;
+  float: right;
+  position: relative;
+  left: -50%;
+  bottom: 26.9px;
+}
+.Navbar .box {
+  background-color: rgba(240, 248, 255, 0.048);
+  box-shadow: 0px -15px 25px 0px rgba(240, 248, 255, 0.075);
+  margin-top: 4px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.Navbar .icon {
+  margin-top: 20px;
+  font-size: 28px;
+  margin-bottom: 20px;
 }
