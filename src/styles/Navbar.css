@@ -1,4 +1,8 @@
 .Navbar {
   width: 100% !important;
-  background-color: aqua;
+  color: aliceblue !important;
+}
+img {
+  width: 50px;
+  margin-left: 15px;
 }

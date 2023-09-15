@@ -1,13 +1,14 @@
 import React from "react";
+import btn from "../img/btn-home_logo.png";
 
 import "../styles/Navbar.css";
 
 export default function Navbar() {
   return (
     <div className="Navbar">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light ">
         <a class="navbar-brand" href="/">
-          Navbar
+          <img src={btn} alt="logo" />
         </a>
         <button
           class="navbar-toggler"
