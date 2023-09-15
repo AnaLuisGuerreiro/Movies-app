@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // Import FontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,12 +12,12 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 // import required modules
-import { EffectCoverflow, Pagination, Zoom } from "swiper/modules";
+import { EffectCoverflow, Pagination } from "swiper/modules";
 
+import LoveButton from "./LoveButton";
 import "../styles/MovieCard.css";
 
 export default function MovieCard() {
-  const [favorite, setFavorite] = useState([]);
   const [movies, setMovies] = useState([]);
   const apiUrl =
     "https://api.themoviedb.org/3/movie/popular?api_key=f88a88c56f80363e3e2757e7a1a6f5a0&page=3&limit=10";
@@ -27,10 +27,6 @@ export default function MovieCard() {
       .then((response) => response.json())
       .then((data) => setMovies(data.results));
   }, []);
-
-  function addFavorites() {
-    setFavorite(!favorite);
-  }
 
   return (
     <div className="MovieCard">
@@ -47,7 +43,8 @@ export default function MovieCard() {
           slideShadows: true,
         }}
         loop={true}
-        modules={[EffectCoverflow, Pagination, Zoom]}
+        initialSlide={Math.floor(movies.length / 2)}
+        modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
         {movies.map((movie, index) => {
@@ -59,11 +56,16 @@ export default function MovieCard() {
               <div className="info">
                 <span>
                   <p className="title">{movie.title}</p>
-                  <p className="vote">{movie.vote_average}</p>
+                  <p className="vote">
+                    {movie.vote_average}
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      style={{ color: "#e7d036" }}
+                      className="star"
+                    />
+                  </p>
                 </span>
-                <div>
-                  <FontAwesomeIcon icon={regularHeart} onClick={addFavorites} />
-                </div>
+                <LoveButton />
               </div>
             </SwiperSlide>
           );
