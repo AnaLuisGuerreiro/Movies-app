@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="App">
       <div className="container bg">
+        <Navbar />
         <Header />
         <MovieCard />
-        <Navbar />
       </div>
     </div>
   );
