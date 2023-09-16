@@ -1,7 +1,19 @@
 .Navbar {
-  width: 100% !important;
-  color: aliceblue !important;
+  width: 100%;
 }
+.fav {
+  color: aliceblue;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 30px;
+}
+.fav:hover {
+  background-image: linear-gradient(45deg, #52cbbe, #2460a1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 img {
   width: 50px;
   margin-left: 15px;
