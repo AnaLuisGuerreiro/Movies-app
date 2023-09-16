@@ -14,12 +14,13 @@ export default function LoveButton() {
 
   return (
     <div className="LoveButton">
-      <FontAwesomeIcon
-        icon={love ? regularHeart : solidHeart}
-        onClick={toggleLove}
-        className="heart"
-      />
-      <span>Add favorites</span>
+      <div onClick={toggleLove}>
+        <FontAwesomeIcon
+          icon={love ? regularHeart : solidHeart}
+          className="heart"
+        />
+        <span>Add favorites</span>
+      </div>
     </div>
   );
 }

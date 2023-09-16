@@ -2,14 +2,23 @@
   text-align: center;
   font-size: 12px;
   position: absolute;
-  margin-left: 85px;
-  top: 49px;
+  margin-left: 90px;
+  top: 69px;
   width: 112px;
   height: 18px;
   border-radius: 40px;
   box-shadow: rgba(251, 251, 251, 0.2) 0px 1px 5px 0px,
-    rgba(251, 251, 251, 0.2) 0px 0px 0px 1px; /* margin-bottom: -430px; */
+    rgba(251, 251, 251, 0.2) 0px 0px 0px 1px;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
 }
-.heart {
+.LoveButton:hover {
+  background: rgba(255, 255, 255, 0.171);
+}
+.LoveButton:active {
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  transform: translateY(4px);
+}
+.LoveButton .heart {
   margin-right: 5px;
 }
