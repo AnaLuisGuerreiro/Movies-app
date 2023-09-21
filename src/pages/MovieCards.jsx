@@ -32,8 +32,9 @@ export default function MovieCards() {
             <img
               src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               alt={movie.title}
+              className="image"
             />
-            <h6>{movie.title}</h6>
+            <h6 className="title">{movie.title}</h6>
           </div>
         ))}
       </div>
