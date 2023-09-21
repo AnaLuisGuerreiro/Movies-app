@@ -8,25 +8,28 @@ import Favorites from "./Favorites";
 import MovieCards from "./MovieCards";
 
 import "../styles/App.css";
+import { FavoritesProvider } from "../components/global/FavoritesContext";
 
 function App() {
   return (
-    <div className="App">
-      <div className="container">
-        <div className="bg">
-          <Router>
-            <Navbar />
-            <Header />
-            <Routes>
-              {" "}
-              <Route path="/" element={<MovieCarosel />} />{" "}
-              <Route path="/Favorites" element={<Favorites />} />{" "}
-              <Route path="/MovieCards" element={<MovieCards />} />
-            </Routes>
-          </Router>
+    <FavoritesProvider>
+      <div className="App">
+        <div className="container">
+          <div className="bg">
+            <Router>
+              <Navbar />
+              <Header />
+              <Routes>
+                {" "}
+                <Route path="/" element={<MovieCarosel />} />{" "}
+                <Route path="/Favorites" element={<Favorites />} />{" "}
+                <Route path="/MovieCards" element={<MovieCards />} />
+              </Routes>
+            </Router>
+          </div>
         </div>
       </div>
-    </div>
+    </FavoritesProvider>
   );
 }
 
