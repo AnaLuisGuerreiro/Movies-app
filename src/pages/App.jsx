@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Importe Routes em vez de Switch
 
-import Header from "../components/Header";
-import MovieCard from "../components/MovieCard";
 import Navbar from "../components/Navbar";
-import Favorites from "./Favorites"; // Importe o componente Favorites
+import Header from "../components/Header";
+import MovieCarosel from "../components/MovieCarosel";
+import Favorites from "./Favorites";
+import MovieCards from "./MovieCards";
 
 import "../styles/App.css";
 
@@ -18,8 +19,9 @@ function App() {
             <Header />
             <Routes>
               {" "}
-              <Route path="/" element={<MovieCard />} />{" "}
-              <Route path="/favorites" element={<Favorites />} />{" "}
+              <Route path="/" element={<MovieCarosel />} />{" "}
+              <Route path="/Favorites" element={<Favorites />} />{" "}
+              <Route path="/MovieCards" element={<MovieCards />} />
             </Routes>
           </Router>
         </div>
