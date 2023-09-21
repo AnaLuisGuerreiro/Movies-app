@@ -51,10 +51,10 @@ export default function MovieCarosel() {
 
           return (
             <SwiperSlide key={index}>
-              <img src={apiImg} alt="Movie poster" />
+              <img src={apiImg} alt="Movie poster" className="images" />
               <div className="info">
                 <span>
-                  <p className="title">{movie.title}</p>
+                  <p className="titles">{movie.title}</p>
                   <p className="vote">
                     {movie.vote_average}
                     <FontAwesomeIcon
@@ -64,7 +64,7 @@ export default function MovieCarosel() {
                     />
                   </p>
                 </span>
-                <LoveButton />
+                <LoveButton movie={movie} />
               </div>
             </SwiperSlide>
           );
