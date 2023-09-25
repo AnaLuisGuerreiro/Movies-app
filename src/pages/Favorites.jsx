@@ -1,22 +1,30 @@
 import React from "react";
-import { useFavorites } from "../components/global/FavoritesContext";
+import { useFavorites } from "../global/FavoritesContext";
 import "../styles/Favorites.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Favorites = () => {
   const { favorites } = useFavorites();
 
   return (
     <div className="Favorites">
-      <h2>Favorites</h2>
-      <div className="info">
+      <h2 className="mb-4">Favorites</h2>
+      <div className="fav-info">
         {favorites.map((movie) => (
           <div key={movie.id} className="cards">
             <img
               src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
               alt={movie.title}
-              className="images"
+              className="fav-images"
             />
-            <h6 className="titles">{movie.title}</h6>
+            <div className="fav-hover">
+              <h6 className="fav-title">{movie.title}</h6>
+              <div className="button">
+                <span>Remove</span>
+                <FontAwesomeIcon icon={faXmark} className="xmark" />
+              </div>
+            </div>
           </div>
         ))}
       </div>
