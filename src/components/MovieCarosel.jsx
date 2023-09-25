@@ -50,11 +50,14 @@ export default function MovieCarosel() {
           const apiImg = `https://image.tmdb.org/t/p/w200/${movie.poster_path}`;
 
           return (
-            <SwiperSlide key={index}>
+            <SwiperSlide
+              key={index}
+              style={{ width: "220px", height: "320px" }}
+            >
               <img src={apiImg} alt="Movie poster" className="images" />
               <div className="info">
                 <span>
-                  <p className="titles">{movie.title}</p>
+                  <h6 className="titles">{movie.title}</h6>
                   <p className="vote">
                     {movie.vote_average}
                     <FontAwesomeIcon

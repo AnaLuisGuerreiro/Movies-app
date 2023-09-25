@@ -16,4 +16,5 @@ body {
 }
 .App .bg {
   background-color: #151a2d;
+  height: 100vh;
 }

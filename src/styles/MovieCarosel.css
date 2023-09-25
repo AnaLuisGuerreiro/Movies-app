@@ -20,7 +20,7 @@
 .MovieCarosel .swiper-slide .images {
   display: block;
   width: 100%;
-  height: 22rem;
+  height: auto;
   -webkit-box-reflect: below 1px
     linear-gradient(transparent, transparent, #0002, #0004);
 }
@@ -28,19 +28,24 @@
 .MovieCarosel .info {
   position: absolute;
   padding-left: 10px;
-  top: 16rem;
-  padding-right: 10px;
-  bottom: 0;
+  top: 12rem;
+  bottom: 0px;
   left: 0;
   right: 0;
-  height: 6rem;
+  height: 8.6rem;
   width: 100%;
-  opacity: 1;
+  opacity: 0;
   transition: 0.5s ease;
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: rgba(0, 0, 0, 0.8) 0px -20px 20px 20px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 30%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
-
+.MovieCarosel .titles {
+  font-weight: bold;
+  margin-top: 45px;
+}
 .MovieCarosel .titles .vote {
   font-size: 20px;
   position: absolute;
@@ -51,11 +56,7 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.MovieCarosel .titles {
-  font-weight: bold;
-}
 .MovieCarosel .vote {
-  margin-top: -10px;
   font-size: 13px;
   text-align: center;
   width: 33px;
