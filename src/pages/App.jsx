@@ -8,7 +8,7 @@ import Favorites from "./Favorites";
 import MovieCards from "./MovieCards";
 
 import "../styles/App.css";
-import { FavoritesProvider } from "../components/global/FavoritesContext";
+import { FavoritesProvider } from "../global/FavoritesContext";
 
 function App() {
   return (
