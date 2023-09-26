@@ -29,9 +29,11 @@ export default function MovieCards() {
                 alt={movie.title}
                 className="image"
               />
-              <h6 className="title">{movie.title}</h6>
-              <div className="love-button">
-                <LoveButton movie={movie} />
+              <div className="hover">
+                <h6 className="title">{movie.title}</h6>
+                <div className="love-button">
+                  <LoveButton movie={movie} />
+                </div>
               </div>
             </div>
           ))

@@ -21,9 +21,8 @@
   object-fit: cover;
 }
 
-.MovieCards .movie-card .title {
+.MovieCards .movie-card .hover {
   position: absolute;
-  font-weight: bold;
   bottom: 10px;
   left: 10px;
   right: 10px;
@@ -33,11 +32,11 @@
     rgba(0, 0, 0, 0) 100%
   );
   margin: 0;
-  opacity: 1;
+  opacity: 0;
   padding: 100px 0 40px 10px;
   transition: all 200ms ease-in-out;
 }
-.MovieCards .movie-card:hover .title {
+.MovieCards .movie-card:hover .hover {
   display: block;
   opacity: 1;
 }
