@@ -1,9 +1,9 @@
 .LoveButton {
+  outline: none;
   text-align: center;
   font-size: 12px;
-  position: absolute;
-  margin-left: 80px;
-  top: 100px;
+  margin-left: 90px;
+  top: 110px;
   width: 112px;
   height: 18px;
   border-radius: 40px;
@@ -21,4 +21,7 @@
 }
 .LoveButton .heart {
   margin-right: 5px;
+}
+.redButton {
+  color: red;
 }

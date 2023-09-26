@@ -18,14 +18,13 @@ export default function LoveButton({ movie }) {
   }
 
   return (
-    <div className="LoveButton">
+    <div className={`LoveButton ${isFavorite ? "redButton" : ""}`}>
       <div onClick={toggleLove}>
-        {isFavorite ? (
-          <FontAwesomeIcon icon={solidHeart} className="heart" />
-        ) : (
-          <FontAwesomeIcon icon={regularHeart} className="heart" />
-        )}
-        <span>Add to favorites</span>
+        <FontAwesomeIcon
+          icon={isFavorite ? solidHeart : regularHeart}
+          className="heart"
+        />
+        <span>{isFavorite ? "Remove " : "Add to favorites"}</span>
       </div>
     </div>
   );
