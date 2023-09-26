@@ -43,8 +43,8 @@
 }
 .MovieCards .love-button {
   position: absolute;
-  right: 20px;
-  bottom: 20px;
+  bottom: 145px;
+  right: 220px;
 }
 
 .MovieCards .infos .no-movies {
