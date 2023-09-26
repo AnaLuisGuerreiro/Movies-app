@@ -2,12 +2,14 @@
   overflow: hidden;
   position: relative;
   color: aliceblue;
+  cursor: grab;
 }
 .MovieCarosel .swiper {
   width: 100%;
   height: 100%;
   padding-top: 20px;
   padding-bottom: 227px;
+  user-select: none;
 }
 
 .MovieCarosel .swiper-slide {

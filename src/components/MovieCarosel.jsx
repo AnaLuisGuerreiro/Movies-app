@@ -18,19 +18,42 @@ import "../styles/MovieCarosel.css";
 
 export default function MovieCarosel() {
   const [movies, setMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const apiUrl =
-    "https://api.themoviedb.org/3/movie/popular?api_key=f88a88c56f80363e3e2757e7a1a6f5a0&page=3";
+  const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=f88a88c56f80363e3e2757e7a1a6f5a0&page=${currentPage}`;
 
   useEffect(() => {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => setMovies(data.results));
-  }, []);
+  }, [apiUrl]);
+
+  const loadMoreMovies = () => {
+    // Incremente o número da página atual.
+    const nextPage = currentPage + 1;
+
+    // Atualize a URL da API com a nova página.
+    const nextPageUrl = `https://api.themoviedb.org/3/movie/popular?api_key=f88a88c56f80363e3e2757e7a1a6f5a0&page=${nextPage}`;
+
+    // Faça uma chamada à API para buscar mais filmes.
+    fetch(nextPageUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        // Combine os novos filmes com os filmes existentes.
+        const updatedMovies = [...movies, ...data.results];
+
+        // Refresh state of the movies and page
+        setMovies(updatedMovies);
+        setCurrentPage(nextPage);
+      });
+  };
 
   return (
     <div className="MovieCarosel">
       <Swiper
+        onReachEnd={() => {
+          loadMoreMovies();
+        }}
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
@@ -42,7 +65,7 @@ export default function MovieCarosel() {
           modifier: 1,
           slideShadows: true,
         }}
-        initialSlide={Math.floor(movies.length / 2)}
+        loop={true}
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
