@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { useLocation } from "react-router-dom";
+import LoveButton from "../components/LoveButton";
 import "../styles/MovieCards.css";
 
 export default function MovieCards() {
@@ -19,16 +20,19 @@ export default function MovieCards() {
     <div className="MovieCards">
       <div className="infos">
         {filteredResults.length === 0 ? (
-          <p>No movies found</p>
+          <h3 className="no-movies">No movies found</h3>
         ) : (
           filteredResults.map((movie) => (
-            <div key={movie.id} className="movieCard">
+            <div key={movie.id} className="movie-card">
               <img
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
                 alt={movie.title}
                 className="image"
               />
               <h6 className="title">{movie.title}</h6>
+              <div className="love-button">
+                <LoveButton movie={movie} />
+              </div>
             </div>
           ))
         )}
