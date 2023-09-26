@@ -5,7 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Favorites = () => {
-  const { favorites } = useFavorites();
+  const { favorites, removeFromFavorites } = useFavorites();
+
+  // Function to remove movies from favorites
+  const handleRemoveFromFavorites = (movieId) => {
+    removeFromFavorites(movieId);
+  };
 
   return (
     <div className="Favorites">
@@ -21,7 +26,12 @@ const Favorites = () => {
             <div className="fav-hover">
               <h6 className="fav-title">{movie.title}</h6>
               <div className="button">
-                <span>Remove</span>
+                <span
+                  className="remove"
+                  onClick={() => handleRemoveFromFavorites(movie.id)} // Call the function to remove the movie
+                >
+                  Remove
+                </span>
                 <FontAwesomeIcon icon={faXmark} className="xmark" />
               </div>
             </div>
