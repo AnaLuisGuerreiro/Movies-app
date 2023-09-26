@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Im
 
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import MovieCarosel from "../components/MovieCarosel";
+import MovieCarosel from "../components/MovieCarousel";
 import Favorites from "./Favorites";
 import MovieCards from "./MovieCards";
 

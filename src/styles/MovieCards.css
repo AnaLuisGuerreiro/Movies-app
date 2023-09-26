@@ -40,6 +40,9 @@
   display: block;
   opacity: 1;
 }
+.MovieCards .title {
+  font-weight: bold;
+}
 .MovieCards .love-button {
   position: absolute;
   bottom: 145px;

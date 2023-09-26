@@ -1,53 +1,63 @@
 .Favorites {
   color: aliceblue;
 }
+
 .Favorites .fav-info {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
   justify-items: center;
 }
+
 .Favorites .cards {
   width: 100%;
   border-radius: 10px;
   padding: 10px;
   position: relative;
 }
+
 .Favorites .cards .fav-images {
   border-radius: 5px;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .Favorites .fav-title {
-  font-size: large;
+  font-weight: bold;
+  margin-bottom: 10px; /* Adiciona espaço abaixo do título */
 }
+
 .Favorites .button {
   position: absolute;
+  text-align: center;
   font-size: smaller;
   border-radius: 30px;
-  margin-left: 90px;
-  margin-top: 110px;
   width: 80px;
-  top: 25px;
+  top: 83%; /* Posição do topo ajustada */
+  right: 10px; /* Posição da direita ajustada */
   box-shadow: rgba(251, 251, 251, 0.2) 0px 1px 5px 0px,
     rgba(251, 251, 251, 0.2) 0px 0px 0px 1px;
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
+
 .Favorites .remove {
   margin-left: 8px;
+  top: 20px;
 }
+
 .Favorites .xmark {
-  position: absolute;
   font-size: 15px;
-  margin-left: 8px;
-  margin-top: 3px;
+  margin-left: 5px;
+  margin-bottom: -1px;
 }
+
 .Favorites .button:hover {
   background: rgba(255, 255, 255, 0.171);
   color: red;
 }
+
 .Favorites .button:active {
   box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
   transform: translateY(4px);
@@ -68,6 +78,7 @@
   padding: 100px 0 40px 10px;
   transition: all 200ms ease-in-out;
 }
+
 .Favorites .cards:hover .fav-hover {
   opacity: 1;
 }
