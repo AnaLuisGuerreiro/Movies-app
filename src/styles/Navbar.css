@@ -18,3 +18,8 @@
   width: 50px;
   margin-left: 15px;
 }
+
+.Navbar input {
+  border-radius: 30px;
+  padding: 1px 1px 1px 10px;
+}
