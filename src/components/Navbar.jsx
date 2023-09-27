@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import btn from "../img/btn-home_logo.png";
+import logo from "../img/btn-home_logo.png";
 
 import "../styles/Navbar.css";
 import { useNavigate } from "react-router-dom";
@@ -42,7 +42,7 @@ export default function Navbar() {
     <div className="Navbar">
       <nav className="navbar navbar-expand-lg">
         <Link to="/" className="navbar-brand" href="/">
-          <img src={btn} alt="logo" />
+          <img src={logo} alt="logo" />
         </Link>
 
         <ul className="navbar-nav ms-auto">

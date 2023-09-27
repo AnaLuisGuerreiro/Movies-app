@@ -1,11 +1,12 @@
 import React from "react";
+import title from "../img/title-SwipeMovies.png";
 
 import "../styles/Header.css";
 
 export default function Header() {
   return (
     <div className="Header">
-      <h1 className="title">Swipe Movie</h1>
+      <img src={title} alt="Swipe Movies" className="page-title" />
     </div>
   );
 }
