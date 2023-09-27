@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFavorites } from "../global/FavoritesContext";
 import "../styles/Favorites.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Favorites = () => {
-  const { favorites, removeFromFavorites } = useFavorites();
+  const { favorites, removeFromFavorites, addToFavorites } = useFavorites();
 
   // Function to remove movies from favorites
   const handleRemoveFromFavorites = (movieId) => {
     removeFromFavorites(movieId);
   };
+
+  useEffect(() => {
+    // Retrieve the list of favorite movies from localStorage
+    const storedFavoriteMovies =
+      JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+
+    // Update the state of favorites with data from localStorage
+    // Maintain the original order of addition (from oldest to newest)
+    storedFavoriteMovies.forEach((movie) => {
+      if (!favorites.some((favMovie) => favMovie.id === movie.id)) {
+        addToFavorites(movie);
+      }
+    });
+  }, [addToFavorites, favorites]);
 
   return (
     <div className="Favorites">
@@ -28,7 +42,7 @@ const Favorites = () => {
               <div className="button">
                 <span
                   className="remove"
-                  onClick={() => handleRemoveFromFavorites(movie.id)} // Call the function to remove the movie
+                  onClick={() => handleRemoveFromFavorites(movie.id)}
                 >
                   Remove
                 </span>

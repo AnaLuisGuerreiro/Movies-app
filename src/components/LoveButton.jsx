@@ -14,6 +14,18 @@ export default function LoveButton({ movie }) {
       removeFromFavorites(movie.id);
     } else {
       addToFavorites(movie);
+      // Retrieve the current list of favorite movies from localStorage
+      const storedFavoriteMovies =
+        JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+
+      // Add new movie to the list
+      storedFavoriteMovies.push(movie);
+
+      // Update the localStorage with the updated list of favorite movies.
+      localStorage.setItem(
+        "favoriteMovies",
+        JSON.stringify(storedFavoriteMovies)
+      );
     }
   }
 
