@@ -1,63 +1,53 @@
 import React, { useEffect, useState } from "react";
-
-// Import FontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-// import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
-
 import LoveButton from "./LoveButton";
 import "../styles/MovieCarousel.css";
 
-export default function MovieCarosel() {
+export default function MovieCarousel() {
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=f88a88c56f80363e3e2757e7a1a6f5a0&page=${currentPage}`;
+  const loadMovies = (page) => {
+    const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=f88a88c56f80363e3e2757e7a1a6f5a0&page=${page}`;
 
-  useEffect(() => {
     fetch(apiUrl)
       .then((response) => response.json())
-      .then((data) => setMovies(data.results));
-  }, [apiUrl]);
-
-  const loadMoreMovies = () => {
-    // Incremente o número da página atual.
-    const nextPage = currentPage + 1;
-
-    // Atualize a URL da API com a nova página.
-    const nextPageUrl = `https://api.themoviedb.org/3/movie/popular?api_key=f88a88c56f80363e3e2757e7a1a6f5a0&page=${nextPage}`;
-
-    // Faça uma chamada à API para buscar mais filmes.
-    fetch(nextPageUrl)
-      .then((response) => response.json())
       .then((data) => {
-        // Combine os novos filmes com os filmes existentes.
-        const updatedMovies = [...movies, ...data.results];
+        const newMovies = data.results;
+        const newTotalPages = data.total_pages;
 
-        // Refresh state of the movies and page
-        setMovies(updatedMovies);
-        setCurrentPage(nextPage);
+        setMovies((prevMovies) => [...prevMovies, ...newMovies]);
+        setCurrentPage(page);
+        setTotalPages(newTotalPages);
       });
   };
 
+  useEffect(() => {
+    loadMovies(1); // Load first movies page
+  }, []);
+
+  const loadMoreMovies = () => {
+    // Check if it's the last movie of the list
+    if (currentPage < totalPages) {
+      loadMovies(currentPage + 1); // Load de next movies page
+    }
+  };
+
   return (
-    <div className="MovieCarosel">
+    <div className="MovieCarousel">
       <Swiper
-        onReachEnd={() => {
-          loadMoreMovies();
-        }}
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={"auto"}
+        onReachEnd={loadMoreMovies}
         coverflowEffect={{
           rotate: 20,
           stretch: 0,
@@ -65,6 +55,7 @@ export default function MovieCarosel() {
           modifier: 1,
           slideShadows: true,
         }}
+        initialSlide={10}
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >

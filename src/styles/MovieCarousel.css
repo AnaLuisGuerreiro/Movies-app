@@ -1,10 +1,10 @@
-.MovieCarosel {
+.MovieCarousel {
   overflow: hidden;
   position: relative;
   color: aliceblue;
   cursor: grab;
 }
-.MovieCarosel .swiper {
+.MovieCarousel .swiper {
   width: 100%;
   height: 100%;
   padding-top: 20px;
@@ -12,14 +12,14 @@
   user-select: none;
 }
 
-.MovieCarosel .swiper-slide {
+.MovieCarousel .swiper-slide {
   place-items: center;
   background-position: center;
   background-size: cover;
   width: 220px;
 }
 
-.MovieCarosel .swiper-slide .images {
+.MovieCarousel .swiper-slide .images {
   display: block;
   width: 100%;
   height: auto;
@@ -27,7 +27,7 @@
     linear-gradient(transparent, transparent, #0002, #0004);
 }
 
-.MovieCarosel .info {
+.MovieCarousel .info {
   position: absolute;
   padding-left: 10px;
   top: 11.5rem;
@@ -36,7 +36,7 @@
   right: 0;
   height: 9.1rem;
   width: 100%;
-  opacity: 1;
+  opacity: 0;
   transition: 0.5s ease;
   background: linear-gradient(
     to top,
@@ -44,11 +44,11 @@
     rgba(0, 0, 0, 0) 100%
   );
 }
-.MovieCarosel .titles {
+.MovieCarousel .titles {
   font-weight: bold;
   margin-top: 45px;
 }
-.MovieCarosel .titles .vote {
+.MovieCarousel .titles .vote {
   font-size: 20px;
   position: absolute;
   top: 50%;
@@ -58,7 +58,7 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.MovieCarosel .vote {
+.MovieCarousel .vote {
   font-size: 13px;
   text-align: center;
   width: 33px;
@@ -67,10 +67,10 @@
   box-shadow: rgba(251, 251, 251, 0.2) 0px 1px 5px 0px,
     rgba(251, 251, 251, 0.2) 0px 0px 0px 1px;
 }
-.MovieCarosel .swiper-slide:hover .info {
+.MovieCarousel .swiper-slide:hover .info {
   opacity: 1;
 }
-.MovieCarosel .star {
+.MovieCarousel .star {
   float: right;
   font-size: 10px;
   margin-right: -4px;
