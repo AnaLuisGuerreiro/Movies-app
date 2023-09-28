@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Im
 
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import MovieCarosel from "../components/MovieCarousel";
+import MovieCarousel from "../components/MovieCarousel";
 import Favorites from "./Favorites";
 import MovieCards from "./MovieCards";
 
@@ -21,9 +21,9 @@ function App() {
               <Header />
               <Routes>
                 {" "}
-                <Route path="/" element={<MovieCarosel />} />{" "}
-                <Route path="/Favorites" element={<Favorites />} />{" "}
-                <Route path="/MovieCards" element={<MovieCards />} />
+                <Route path="/" element={<MovieCarousel />} />{" "}
+                <Route path="/favorites" element={<Favorites />} />{" "}
+                <Route path="/movieCards" element={<MovieCards />} />
               </Routes>
             </Router>
           </div>
