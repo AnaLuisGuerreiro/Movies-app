@@ -9,7 +9,19 @@ const Favorites = () => {
 
   // Function to remove movies from favorites
   const handleRemoveFromFavorites = (movieId) => {
+    // Remove the movie from favorites state
     removeFromFavorites(movieId);
+
+    // Remove the movie from localStorage
+    const storedFavoriteMovies =
+      JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+    const updatedFavoriteMovies = storedFavoriteMovies.filter(
+      (favMovie) => favMovie.id !== movieId
+    );
+    localStorage.setItem(
+      "favoriteMovies",
+      JSON.stringify(updatedFavoriteMovies)
+    );
   };
 
   useEffect(() => {

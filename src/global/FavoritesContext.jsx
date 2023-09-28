@@ -11,7 +11,7 @@ export function FavoritesProvider({ children }) {
 
   const addToFavorites = (movie) => {
     // Add to favorite list at the beginning
-    setFavorites([movie, ...favorites]);
+    setFavorites([...favorites, movie]);
   };
 
   const removeFromFavorites = (movieId) => {
