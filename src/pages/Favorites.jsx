@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useFavorites } from "../global/FavoritesContext";
 import "../styles/Favorites.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,7 +6,6 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Favorites = () => {
   const { favorites, removeFromFavorites, addToFavorites } = useFavorites();
-
   // Function to remove movies from favorites
   const handleRemoveFromFavorites = (movieId) => {
     // Remove the movie from favorites state
